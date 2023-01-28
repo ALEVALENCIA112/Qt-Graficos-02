@@ -20,10 +20,21 @@ private slots:
 
     void on_pushButton_clicked(bool checked);
 
+    //slots de cada spinBox, el parametro de activación es el cambio de valor
+    void on_spinBox_nota1_valueChanged(int valor);
+    void on_spinBox_nota2_valueChanged(int valor);
+    void on_spinBox_nota3_valueChanged(int valor);
+
+protected:
+    /*Esta esta funcion miembro (o metodo)
+    es la clave para crear dibujos dinamicos*/
+    void paintEvent(QPaintEvent *event) override;
+
 private:
     Ui::Principal *ui;
     QPixmap lienzo;
 
     void dibujar();
+    int getaltura(int valor);
 };
 #endif // PRINCIPAL_H
