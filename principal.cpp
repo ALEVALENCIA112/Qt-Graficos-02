@@ -156,8 +156,10 @@ void Principal::dibujar()
 
 void Principal::on_actionGuardar_triggered()
 {
-    QString nombreArchivo = QFileDialog::getSaveFileName(
-                this,"Guardar imagen",QString(),"Imagenes (*.png)");
+    QString nombreArchivo = QFileDialog::getSaveFileName(this,
+                                                         "Guardar imagen",
+                                                         QString(),
+                                                         "Imagenes (*.png)");
     if (!nombreArchivo.isEmpty()){
         if (lienzo.save(nombreArchivo))
             QMessageBox::information(this,"Guardar imagen","Archivo guarado en: " + nombreArchivo);
