@@ -56,7 +56,7 @@ void Principal::dibujar()
     int alto1 = this->getaltura(nota1);
 
     // Dibujar primera barra
-    painter.drawRect(x+50, y+450,100,-alto1);
+    painter.drawRect(x+80, y+450,100,-alto1);
     /*no se toma la variable "nota1" ya que el tamaño del gráfico no correspondería a
     la escala gráfica, sino que correspondería a la escala de "Qtlabel"*/
 
@@ -124,7 +124,7 @@ void Principal::dibujar()
 
     //Para graficar la barra prestar atención que en los datos de POSICIÖN (x+### ; y+###) & TAMAÑO (### ; ###) se encuentren declarados de forma correcta
     // Dibujar segunda barra
-    painter.drawRect(x+170, y+450, 100, -alto2);
+    painter.drawRect(x+200, y+450, 100, -alto2);
     /*no se toma la variable "nota2" ya que el tamaño del gráfico no correspondería a
     la escala gráfica, sino que correspondería a la escala de "Qtlabel"*/
 
@@ -148,7 +148,7 @@ void Principal::dibujar()
 
     //Para graficar la barra prestar atención que en los datos de POSICIÖN (x+### ; y+###) & TAMAÑO (### ; ###) se encuentren declarados de forma correcta
     // Dibujar tercera barra
-    painter.drawRect(x+290,y+450,100,-alto3);
+    painter.drawRect(x+320,y+450,100,-alto3);
     /*no se toma la variable "nota3" ya que el tamaño del gráfico no correspondería a
     la escala gráfica, sino que correspondería a la escala de "Qtlabel"*/
 
@@ -167,6 +167,19 @@ void Principal::dibujar()
                                                                         el punto de origen de las barras como de la linea será y+450
                                                                         para establecer la altura usamos la misma forma de altura que las barras -(prom * 4)
                                                                         el paso siguiente es colocar el punto de llegada de la linea en el eje y, este será 0 ya que será una linea*/
+
+
+    //lineas de los ejes de notas y puntaje
+    QColor ejes(0, 0, 0);
+    QColor rellenoejes(Qt::white);
+
+    pincel.setColor(ejes);
+    painter.setPen(pincel);
+    painter.setBrush(rellenoejes);
+
+    painter.drawRect(x+50,y+50,0,400);
+    //0 y 400 son el largo de la linea
+    painter.drawRect(x+50,y+450,400,0);
 
 }
 
