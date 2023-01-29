@@ -18,7 +18,7 @@ public:
 private slots:
     void on_actionGuardar_triggered();
 
-    void on_pushButton_clicked(bool checked);
+    void on_pushButton_clicked();
 
     //slots de cada spinBox, el parametro de activación es el cambio de valor
     void on_spinBox_nota1_valueChanged(int valor);
@@ -36,5 +36,7 @@ private:
 
     void dibujar();
     int getaltura(int valor);
+    float prom;
+
 };
 #endif // PRINCIPAL_H

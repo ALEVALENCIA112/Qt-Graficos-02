@@ -151,6 +151,23 @@ void Principal::dibujar()
     painter.drawRect(x+290,y+450,100,-alto3);
     /*no se toma la variable "nota3" ya que el tamaño del gráfico no correspondería a
     la escala gráfica, sino que correspondería a la escala de "Qtlabel"*/
+
+    //Fijamos los colores que serán usados
+    QColor lineaProm(70, 194, 1);
+    QColor rellenoProm(Qt::white);
+
+    //establecemos los colores
+    pincel.setColor(lineaProm);
+    painter.setPen(pincel);
+    painter.setBrush(rellenoProm);
+
+    painter.drawRect(x,y+450-(prom * 4),500, 0);
+    /*para crear la barra de promedio consideramos el punto de partida de x = 0 y el punto de llegada 500
+      para la altura de la linea establecemos el punto de partida en el valor del promedio
+                                                                        el punto de origen de las barras como de la linea será y+450
+                                                                        para establecer la altura usamos la misma forma de altura que las barras -(prom * 4)
+                                                                        el paso siguiente es colocar el punto de llegada de la linea en el eje y, este será 0 ya que será una linea*/
+
 }
 
 
@@ -168,9 +185,14 @@ void Principal::on_actionGuardar_triggered()
     }
 }
 
-void Principal::on_pushButton_clicked(bool checked)
+void Principal::on_pushButton_clicked()
 {
+    int suma = ui->spinBox_nota1->value() + ui->spinBox_nota2->value() + ui->spinBox_nota3->value();
+    prom = suma / 3.0;
 
+    ui->outProm->display(prom);
+
+    dibujar();
 }
 
 int Principal::getaltura(int valor)
